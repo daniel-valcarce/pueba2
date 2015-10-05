@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <title>Servimotores</title>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1 id="titulo">Servim<img src="img/llanta.jpg" width="100px" height="100px">t<img                   src="img/llanta.jpg" width="100px" height="100px"></h1>
+            </header>
+            
+            <section class="contenido">
+                <h1>Inicio de Sesion</h1>
+                <div id="form_inicio">
+                     <table>
+                           
+                    
+                           <tr>
+                               <td>Usuario</td>
+                               <td><input id="usuario_session" type="text" required ="required"></td>
+                           </tr>
+                            <tr>
+                               <td>Clave</td>
+                               <td><input id="clave_session" type="password" required="required"></td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td><input id="enviar_form_inicio" type="button" onclick="Iniciar()" value="Enviar"></td>
+                           </tr>
+                  
+                       
+                           
+                        </table>
+                       
+                    
+                </div>
+            </section>
+            
+            <footer>
+                 <p><a href="recuperarpass.html">Olvido su contraseña</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                               <a href="registrarse.html">Registrarse</a></p>
+            </footer>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+                   document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      autenticaion(window.localStorage.getItem("correo"),window.localStorage.getItem("clave"));
+
+     
+    }
+            
+            
+            
+                function Iniciar(){
+                    
+                    var usuario_dato = $("input#usuario_session").val();
+            var clave_dato   = $("input#clave_session").val();
+                if(usuario_dato===""){
+                    alert("faltan valores");
+                    return;
+                }if(clave_dato===""){
+                    alert("faltan valores");
+                    return;
+                }
+                                  $.ajax({
+                        url:"http://hostinpageval.6te.net/php/Sistema.php",  
+                        type:"POST",
+                        dataType:"json",
+                        data:{usuario:usuario_dato, clave:clave_dato, inicio_session:"session"},
+                        success: function(resp){
+                       if(resp["valor"]==="Registrado"){
+                          window.localStorage.setItem("nombres", resp["nombres"]);
+                          window.localStorage.setItem("apellidos", resp["apellidos"]);
+                          window.localStorage.setItem("cedula", resp["cedula"]);
+                          window.localStorage.setItem("correo", resp["correo"]);
+                          window.localStorage.setItem("clave", resp["clave"]);
+                          window.localStorage.setItem("dir_residencia", resp["dir_residencia"]);
+                          window.localStorage.setItem("id_barrio", resp["id_barrio"]);
+                          window.localStorage.setItem("id_municipio", resp["id_municipio"]);
+                          window.localStorage.setItem("id_perfil", resp["id_perfil"]);
+                          window.localStorage.setItem("id_persona", resp["id_persona"]);
+                          window.localStorage.setItem("id_zona", resp["id_zona"]);
+                          window.localStorage.setItem("nomb_perfil", resp["nomb_perfil"]);
+                          window.localStorage.setItem("nun_telefono", resp["nun_telefono "]);
+                          window.localStorage.setItem("telf_fijo", resp["telf_fijo"]);
+                                                   
+                        window.location="logeado.html";
+                       }else{
+                           alert("No Registrado");
+                       }
+                             }, 
+                             error: function(jq, status, error){
+                                   $("input#usuario_session").val("");
+                                   $("input#clave_session").val("");
+                             }
+                        });   
+                }
+                           
+              function autenticaion(usuario_dato,clave_dato){
+         $.ajax({
+                        url:"http://hostinpageval.6te.net/php/Sistema.php",  
+                        type:"POST",
+                        dataType:"json",
+                        data:{usuario:usuario_dato, clave:clave_dato, inicio_session:"session"},
+                        success: function(resp){
+                       if(resp["valor"]==="Registrado"){                       
+                        window.location="logeado.html";
+                       }
+                             }, 
+                             error: function(jq, status, error){
+                                   $("input#usuario_session").val("");
+                                   $("input#clave_session").val("");
+                             }
+                        });   
+        }
+        </script>
+    </body>
+</html>

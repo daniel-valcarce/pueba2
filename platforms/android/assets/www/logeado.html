@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="js/jquery_ui/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/logeado.css" />
+<!--        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+         <script type="text/javascript" src="js/jquery_ui/external/jquery/jquery.js"></script>
+         <script type="text/javascript" src="js/jquery_ui/jquery-ui.js"></script>      
+        <title>Servimotores</title>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1 id="titulo">Servim<img src="img/llanta.jpg" width="100px" height="100px">t<img                   src="img/llanta.jpg" width="100px" height="100px"></h1>
+            </header>
+            
+            <section class="contenido">
+                <a id="salir_app" href="index.html">salir</a>
+                           <div id="datos_cli">
+                                <h3 id="nomb_cli"></h3>
+                                <h3 id="apell_cli"></h3> 
+                           </div>
+               
+                <div id="serv_cli_app">
+                    <p>solicitar Servicio de</p>
+                    <select  id="tipo_servicio">
+                        <option>Transporte</option>
+                        <option>Domicilio</option>
+                        <option>Consignacion</option>
+                        <option>Compras</option>
+                    </select>
+                    <p>municipio de salida</p>
+                     <select id="municipio_origen">
+                        <option>Villa del Rosario</option>
+                        <option>Cucuta</option>
+                        <option>Los Patios</option>
+                        <option></option>
+                    </select>
+                    <p>Lugar de origen barrio</p>
+                    <p>si no esta su barrio Selecciona otro</p>
+                    <select id="barri_origen">
+                        <option>La Palmita</option>
+                        <option>San Gregorio</option>
+                        <option>Lomitas</option>
+                        <option>La Esperanza</option>
+                        <option>20 de Julio</option>
+                        <option>El Paraiso</option>
+                        <option>Nariño</option>
+                    </select>
+                    <input type="text" id="otro_barrio_origen">
+                    
+                    <h2>Lugar destino</h2>                   
+                    <p>municipio de salida</p>
+                     <select id="municipio_destino">
+                        <option>Villa del Rosario</option>
+                        <option>Cucuta</option>
+                        <option>Los Patios</option>
+                        <option></option>
+                    </select>
+                    <p>Lugar de origen barrio</p>
+                    <p>si no esta su barrio Selecciona otro</p>
+                    <select id="barri_destino">
+                        <option>La Palmita</option>
+                        <option>San Gregorio</option>
+                        <option>Lomitas</option>
+                        <option>La Esperanza</option>
+                        <option>20 de Julio</option>
+                        <option>El Paraiso</option>
+                        <option>Nariño</option>
+                    </select>
+                    <input type="text" id="otro_barrio_destino">
+                    <p>Descripcion del servicio</p>
+                    <textarea id="descripcion_servicio" cols="30" rows="6">
+                        
+                    </textarea>
+                    <input type="button" value="Solicitar" id="solicitar_servicio"/>
+                </div>               
+                
+            </section>
+            
+            <footer>
+                
+            </footer>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+             document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      $("#nomb_cli").append(window.localStorage.getItem("nombres"));
+      $("#apell_cli").append(window.localStorage.getItem("apellidos"));
+     
+    }
+    $(document).on("ready", function(){
+        
+    });
+    $("#salir_app").on("click", function(){
+       localStorage.clear(); 
+    });
+        </script>
+    </body>
+</html>

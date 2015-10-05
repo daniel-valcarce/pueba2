@@ -1,0 +1,184 @@
+p,body div, header,a, h1,h2,h3,img,select,option,input{
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding: 8px;
+}
+
+
+/************consulta para despositivos mayores de 720px**************/
+@media only screen and (max-width: 721px), only screen and (max-width: 2600px){  
+ /*******************estilos del header****************/ 
+ 
+/*estilos del header*/
+
+   /********************estilos del header**************************/ 
+    
+    
+      /********************estilos del content**************************/ 
+    
+    /********************estilos del content**************************/ 
+    
+    /********************estilos del footer**************************/ 
+    
+    /********************estilos del footer**************************/ 
+} 
+
+/*************fin de la consulta para despositivos mayores de 720px*************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************consulta para despositivos mayores de 480 y menores de 720px**************/
+
+@media only screen and (max-width: 480px), only screen and (max-width: 720px){  
+    
+           
+      /********************estilos del header **************************/ 
+  
+/*estilos del header*/
+
+   
+    /********************estilos del header **************************/ 
+
+
+      /********************estilos del content**************************/ 
+    
+    /********************estilos del content**************************/ 
+    
+    /********************estilos del footer**************************/ 
+    
+    /********************estilos del footer**************************/ 
+    
+    
+} 
+
+/************fin de la consulta para despositivos mayores de 480 y menores de 720px**************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************consulta para despositivos mayores de 320 y menores de 480px**************/
+@media only screen and (max-width: 320px), only screen and (max-width: 479px){  
+    
+            /********************estilos del header **************************/ 
+            
+            #nomb_cli,#apell_cli{
+                display: inline-block;
+            }
+            #datos_cli{
+                width: 100%;
+                height: auto;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+           
+            #tipo_servicio,#municipio_origen,#barri_origen,#municipio_destino,#barri_destino,#solicitar_servicio{
+               width: 100%;
+               height: 20px;
+              
+               margin-top: 5px;
+               
+               
+            }
+            #otro_barrio_origen,#otro_barrio_destino{
+                width: 100%;
+                margin-top: 5px;
+                height: 30px;
+            }
+             #serv_cli_app select{
+                font-size: 18px;
+                padding: 10px;
+                height: 40px;
+                text-align: center;
+              
+                
+              
+            }
+            #solicitar_servicio{
+                height: 40px;
+            }
+            #descripcion_servicio{
+                width: 100%;
+            }
+    /*estilos del header*/
+
+    
+        /********************estilos del header **************************/ 
+
+
+      /********************estilos del content**************************/ 
+    
+    /********************estilos del content**************************/ 
+    
+    /********************estilos del footer**************************/ 
+    
+    /********************estilos del footer**************************/ 
+    
+    
+    
+    
+} 
+
+/************fin de la consulta para despositivos mayores de 320 y menores de 480px**************/
